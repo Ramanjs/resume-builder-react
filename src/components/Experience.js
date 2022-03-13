@@ -8,29 +8,29 @@ class Experience extends Component {
     super(props);
 
     const sample = {
-          id: _.uniqueId('section-'),
-          company: "Some Company",
-          role: 'Software Developer Intern',
-          loc: 'Delhi, IN | May 2021 - July 2021',
-          achievements: [
-            {
-              id: _.uniqueId('item-'),
-              text: "Created a XYZ feature to accomplish ABC"
-            },
-            {
-              id: _.uniqueId('item-'),
-              text: "Retrieved data XYZ for ABC"
-            },
-            {
-              id: _.uniqueId('item-'),
-              text: "Implemented XYZ library for ABC"
-            },
-            {
-              id: _.uniqueId('item-'),
-              text: "Utilized XYZ that increased A by B%"
-            }
-          ]
-        };
+      id: _.uniqueId('section-'),
+      company: "Some Company",
+      role: 'Software Developer Intern',
+      loc: 'Delhi, IN | May 2021 - July 2021',
+      achievements: [
+        {
+          id: _.uniqueId('item-'),
+          text: "Created a XYZ feature to accomplish ABC"
+        },
+        {
+          id: _.uniqueId('item-'),
+          text: "Retrieved data XYZ for ABC"
+        },
+        {
+          id: _.uniqueId('item-'),
+          text: "Implemented XYZ library for ABC"
+        },
+        {
+          id: _.uniqueId('item-'),
+          text: "Utilized XYZ that increased A by B%"
+        }
+      ]
+    };
 
     this.state = {
       sampleSection: JSON.parse(JSON.stringify(sample)),
@@ -48,6 +48,7 @@ class Experience extends Component {
     this.handleTextDelete = this.handleTextDelete.bind(this);
     this.handleTextAdd = this.handleTextAdd.bind(this);
     this.handleSectionAdd = this.handleSectionAdd.bind(this);
+    this.handleSectionDel = this.handleSectionDel.bind(this);
   }
 
   findSectionId(id) {
@@ -115,9 +116,8 @@ class Experience extends Component {
     const sectionId = this.findSectionId(id);
     this.setState({
       sections: this.state.sections.map(section => {
-        if (section.id == sectionId) {
+        if (section.id == sectionId && section.achievements.length > 1) {
           section.achievements = section.achievements.filter(item => item.id != id);
-          //return section;
         }
         return section;
       })
@@ -158,9 +158,20 @@ class Experience extends Component {
     const curSections = this.state.sections.filter(() => true);
     const index = this.findSectionIndex(id);
     const sample = JSON.parse(JSON.stringify(this.state.sampleSection));
-    console.log(sample);
     sample.id = _.uniqueId('section-');
     curSections.splice(index + 1, 0, sample);
+    this.setState({
+      sections: curSections
+    })
+  }
+
+  handleSectionDel(id) {
+    const curSections = this.state.sections.filter(() => true);
+    if (curSections.length == 1) {
+      return;
+    }
+    const index = this.findSectionIndex(id);
+    curSections.splice(index, 1);
     this.setState({
       sections: curSections
     })
@@ -170,8 +181,8 @@ class Experience extends Component {
     return (
       <div className="section">
         <Text className="section-name" value="Work Experience"/>
-        {this.state.sections.map((section) => 
-          <div id={section.id}>
+        {this.state.sections.map(section => 
+          <div key={section.id}>
             <Heading
               id={section.id}
               section="experience"
@@ -179,12 +190,14 @@ class Experience extends Component {
               role={section.role}
               loc={section.loc}
               onAdd={this.handleSectionAdd}
+              onDel={this.handleSectionDel}
               onCompanyChange={this.handleCompanyChange}
               onRoleChange={this.handleRoleChange}
               onLocChange={this.handleLocChange}
             />
-            {section.achievements.map((achievement) => 
+            {section.achievements.map(achievement => 
               <Text
+                key={achievement.id}
                 value={achievement.text}
                 id={achievement.id}
                 onChange={this.handleItemChange}

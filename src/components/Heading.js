@@ -12,8 +12,9 @@ class Heading extends Component {
         className="title"
         value={this.props.value}
         isEditable={true}
-        onAdd={this.props.onAdd}
         onChange={this.props.onCompanyChange}
+        onAdd={this.props.onAdd}
+        onDel={this.props.onDel}
       />
       if (this.props.section == "experience") {
         titleElement = <div>
@@ -24,7 +25,11 @@ class Heading extends Component {
     return (
       <div className="heading">
         {titleElement}
-        <Text id={this.props.id} value={this.props.loc} onChange={this.props.onLocChange}/>
+        <Text
+          id={this.props.id}
+          value={this.props.loc}
+          onChange={this.props.onLocChange}
+        />
       </div>
     )
   }
