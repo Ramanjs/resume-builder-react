@@ -108,7 +108,7 @@ class Education extends Component {
   render() {
     return (
       <div className="section">
-        <Text className="section-name" value="Education"/>
+        <Text className="section-name" value="Education" />
         {this.state.degrees.map(deg => 
           <div key={deg.id}>
             <Heading

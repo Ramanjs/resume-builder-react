@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Education from './Education';
 import Experience from './Experience';
+import Project from './Project';
 
 class Resume extends Component {
   render() {
@@ -8,6 +9,7 @@ class Resume extends Component {
       <div className="resume">
         <Education />
         <Experience />
+        <Project />
       </div>
     );
   }
