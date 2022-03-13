@@ -1,9 +1,10 @@
+import './style.css';
+import Resume from './components/Resume';
+
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-          Learn React
-      </header>
+      <Resume />
     </div>
   );
 }
