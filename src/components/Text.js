@@ -28,7 +28,7 @@ class Text extends Component {
 
   render() {
     return (
-      <div onMouseEnter={this.onFocused} onMouseLeave={this.onBlured}>
+      <div onMouseEnter={this.onFocused} onMouseLeave={this.onBlured} className="text-flex">
         {this.state.isEditVisible && this.props.isEditable ? <EditPane id={this.props.id} onDel={this.props.onDel} onAdd={this.props.onAdd}/> : null}
         <Input value={this.props.value} id={this.props.id} onChange={this.props.onChange} />
       </div>

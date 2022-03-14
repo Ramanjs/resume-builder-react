@@ -96,7 +96,9 @@ class Project extends Component {
   render() {
     return (
       <div className="section">
-        <Text className="section-name" value="Projects" />
+        <div className="section-name">
+          <Text value="PROJECTS" />
+        </div>
         {this.state.projects.map(project => 
           <div key={project.id}>
             <Heading
@@ -109,11 +111,13 @@ class Project extends Component {
               onAdd={this.handleProjectAdd}
               onDel={this.handleProjectDel}
             />
-            <Text
-              id={project.id}
-              value={project.desc}
-              onChange={this.handleDescChange}
-            />
+            <div className="text">
+              <Text
+                id={project.id}
+                value={project.desc}
+                onChange={this.handleDescChange}
+              />
+            </div>
           </div>
         )}
       </div>

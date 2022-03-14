@@ -19,8 +19,8 @@ class EditPane extends Component {
   render() {
     return (
       <div className="edit-pane">
-        <div className="edit-button" onClick={this.handleAdd}>Add</div>
-        <div className="edit-button" onClick={this.handleDelete}>Del</div>
+        <div className="edit-button" onClick={this.handleAdd}>+</div>
+        <div className="edit-button" onClick={this.handleDelete}>-</div>
       </div>
     )
   }

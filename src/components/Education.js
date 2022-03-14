@@ -10,7 +10,7 @@ class Education extends Component {
     const sample = {
       id: _.uniqueId('section-'),
       degree: 'B Tech Computer Science and Technology',
-      uni: 'IIIT-D',
+      uni: 'IIIT, Delhi',
       coursework: 'Data Structures and Algorithms; Operating Systems;  Computer Security; Software Testing; Advanced Networking; Big Data Analytics',
       duration: 'Jan 2022 - Present'
     };
@@ -108,7 +108,9 @@ class Education extends Component {
   render() {
     return (
       <div className="section">
-        <Text className="section-name" value="Education" />
+        <div className="section-name">
+          <Text value="EDUCATION" />
+        </div>
         {this.state.degrees.map(deg => 
           <div key={deg.id}>
             <Heading
@@ -121,16 +123,20 @@ class Education extends Component {
               onAdd={this.handleDegreeAdd}
               onDel={this.handleDegreeDel}
             />
-            <Text
-              id={deg.id}
-              value={deg.uni}
-              onChange={this.handleUniChange}
-            />
-            <Text
-              id={deg.id}
-              value={deg.coursework}
-              onChange={this.handleCourseworkChange}
-            />
+            <div className="raleway">
+              <Text
+                id={deg.id}
+                value={deg.uni}
+                onChange={this.handleUniChange}
+              />
+            </div>
+            <div className="text">
+              <Text
+                id={deg.id}
+                value={"Coursework: " + deg.coursework}
+                onChange={this.handleCourseworkChange}
+              />
+            </div>
           </div>
         )}
       </div>

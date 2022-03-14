@@ -9,25 +9,25 @@ class Experience extends Component {
 
     const sample = {
       id: _.uniqueId('section-'),
-      company: "Some Company",
+      company: "Amazon",
       role: 'Software Developer Intern',
       loc: 'Delhi, IN | May 2021 - July 2021',
       achievements: [
         {
           id: _.uniqueId('item-'),
-          text: "Created a XYZ feature to accomplish ABC"
+          text: "Designed and implemented a dashboard using React and TypeScript to visualize data stored in DynamoDB, decreasing time to understand delivery driver work sessions by over 10 times."
         },
         {
           id: _.uniqueId('item-'),
-          text: "Retrieved data XYZ for ABC"
+          text: "Ensured only authorized employees have access to the application by creating an AWS Lambda@Edge function to intercept and sign valid requests"
         },
         {
           id: _.uniqueId('item-'),
-          text: "Implemented XYZ library for ABC"
+          text: "Devised and deployed the infrastructure in TypeScript through AWS CDK, then created efficient algorithms to process data from a custom REST API, so it could scale to handle millions of deliveries."
         },
         {
           id: _.uniqueId('item-'),
-          text: "Utilized XYZ that increased A by B%"
+          text: "Setup a CI/CD pipeline and exceeded requirements in each stage, which lead to the application being pushed to production."
         }
       ]
     };
@@ -138,7 +138,7 @@ class Experience extends Component {
           i++;
           section.achievements.splice(i, 0, {
             id: _.uniqueId('item-'),
-            text: ' '
+            text: 'Implemented XYZ library for ABC'
           });
         }
         return section;
@@ -180,7 +180,9 @@ class Experience extends Component {
   render() {
     return (
       <div className="section">
-        <Text className="section-name" value="Work Experience"/>
+        <div className="section-name">
+          <Text value="WORK EXPERIENCE"/>
+        </div>
         {this.state.sections.map(section => 
           <div key={section.id}>
             <Heading
@@ -195,17 +197,20 @@ class Experience extends Component {
               onRoleChange={this.handleRoleChange}
               onLocChange={this.handleLocChange}
             />
-            {section.achievements.map(achievement => 
-              <Text
-                key={achievement.id}
-                value={achievement.text}
-                id={achievement.id}
-                onChange={this.handleItemChange}
-                onDel={this.handleTextDelete}
-                onAdd={this.handleTextAdd}
-                isEditable={true}
-              />
-            )}
+            <ul className="text">
+              {section.achievements.map(achievement => 
+                <li key={achievement.id}>
+                  <Text
+                    value={achievement.text}
+                    id={achievement.id}
+                    onChange={this.handleItemChange}
+                    onDel={this.handleTextDelete}
+                    onAdd={this.handleTextAdd}
+                    isEditable={true}
+                  />
+                </li>
+              )}
+            </ul>
           </div>
         )}
       </div>

@@ -6,7 +6,7 @@ class Name extends Component {
     super(props);
 
     const sample = {
-      name: 'First Last',
+      name: 'Firstname Lastname',
       email: 'someEmail@edu.com',
       phone: '1-234-567-890',
       linkedin: 'linkedIn/linkedInUsername',

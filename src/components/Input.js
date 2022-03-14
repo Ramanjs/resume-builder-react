@@ -14,7 +14,9 @@ class Input extends Component {
 
   render() {
     return (
-      <input type="text" onChange={this.handleChange} value={this.props.value} />
+      <span onChange={this.handleChange} contentEditable="true" spellCheck="false">
+        {this.props.value}
+      </span>
     );
   }
 }

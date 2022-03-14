@@ -6,8 +6,8 @@ class Skill extends Component {
     super(props);
 
     const sample = {
-      lang: 'JavaScript,C++,Python,C#,PHP,Prolog,Bash,C,SQL',
-      tech: 'Git,React,Vim,AWS,GCP,Azure,Docker,Unity,Apache'
+      lang: 'JavaScript, C++, Python, C#, PHP, Prolog, Bash, C, SQL',
+      tech: 'Git, React, Vim, AWS, GCP, Azure, Docker, Unity, Apache'
     }
 
     this.state = {
@@ -34,15 +34,21 @@ class Skill extends Component {
   render() {
    return (
      <div className="section">
-       <Text className="section-name" value="Skills" />
-       <Text
-         value={this.state.lang}
-         onChange={this.handleLangChange}
-       />
-       <Text
-         value={this.state.tech}
-         onChange={this.handleTechChange}
-       />
+       <div className="section-name">
+         <Text value="SKILLS" />
+       </div>
+       <div className="text">
+         <Text
+           value={"Languages: " + this.state.lang}
+           onChange={this.handleLangChange}
+         />
+       </div>
+       <div className="text">
+         <Text
+           value={"Technologies: " + this.state.tech}
+           onChange={this.handleTechChange}
+         />
+       </div>
      </div>
     )
   }
