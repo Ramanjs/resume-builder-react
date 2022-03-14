@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Text from './Text';
+import Text from './utils/Text';
 
 class Skill extends Component {
   constructor(props) {

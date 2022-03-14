@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import Heading from './Heading';
-import Text from './Text';
+import Heading from './utils/Heading';
+import Text from './utils/Text';
 import _ from 'lodash';
 
 class Project extends Component {

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Text from './Text';
+import Text from './utils/Text';
 
 class Name extends Component {
   constructor(props) {
@@ -37,6 +37,27 @@ class Name extends Component {
           value={this.state.name}
           onChange={this.handleNameChange}
         />
+        <div className="personal-info">
+          <Text
+            value={this.state.email}
+            onChange={this.handleEmailChange}
+          />
+          <div className="pipe info-pipe">|</div>
+          <Text
+            value={this.state.phone}
+            onChange={this.handlePhoneChange}
+          />
+          <div className="pipe info-pipe">|</div>
+          <Text
+            value={this.state.linkedin}
+            onChange={this.state.handleLinkedinChange}
+          />
+          <div className="pipe info-pipe">|</div>
+          <Text
+            value={this.state.github}
+            onChange={this.handleGithubChange}
+          />
+        </div>
       </div>
     )
   }

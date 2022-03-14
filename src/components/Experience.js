@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import Heading from './Heading';
-import Text from './Text';
+import Heading from './utils/Heading';
+import Text from './utils/Text';
 import _ from 'lodash';
 
 class Experience extends Component {
@@ -159,6 +159,9 @@ class Experience extends Component {
     const index = this.findSectionIndex(id);
     const sample = JSON.parse(JSON.stringify(this.state.sampleSection));
     sample.id = _.uniqueId('section-');
+    sample.achievements.forEach(achievement => {
+      achievement.id = _.uniqueId('item-');
+    })
     curSections.splice(index + 1, 0, sample);
     this.setState({
       sections: curSections
