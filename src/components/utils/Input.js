@@ -15,7 +15,7 @@ class Input extends Component {
 
   render() {
     return (
-      <span onChange={this.handleChange} contentEditable="true" spellCheck="false">
+      <span onChange={this.handleChange} contentEditable={true} spellCheck={true} suppressContentEditableWarning={true}>
         {this.props.value}
       </span>
     );
