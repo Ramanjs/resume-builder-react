@@ -22,11 +22,39 @@ class Name extends Component {
     }
 
     this.handleNameChange = this.handleNameChange.bind(this);
+    this.handleEmailChange = this.handleEmailChange.bind(this);
+    this.handlePhoneChange = this.handlePhoneChange.bind(this);
+    this.handleLinkedinChange = this.handleLinkedinChange.bind(this);
+    this.handleGithubChange = this.handleGithubChange.bind(this);
   }
 
   handleNameChange(value) {
     this.setState({
       name: value
+    })
+  }
+
+  handleEmailChange(value) {
+    this.setState({
+      email: value
+    })
+  }
+
+  handlePhoneChange(value) {
+    this.setState({
+      phone: value
+    })
+  }
+
+  handleLinkedinChange(value) {
+    this.setState({
+      linkedin: value
+    })
+  }
+
+  handleGithubChange(value) {
+    this.setState({
+      github: value
     })
   }
 
@@ -50,7 +78,7 @@ class Name extends Component {
           <div className="pipe info-pipe">|</div>
           <Text
             value={this.state.linkedin}
-            onChange={this.state.handleLinkedinChange}
+            onChange={this.handleLinkedinChange}
           />
           <div className="pipe info-pipe">|</div>
           <Text

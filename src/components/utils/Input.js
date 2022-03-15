@@ -9,13 +9,12 @@ class Input extends Component {
   }
   
   handleChange(e) {
-    console.log(e.target)
-    this.props.onChange(e.target.value, this.props.id);
+    this.props.onChange(e.target.innerText, this.props.id);
   }
 
   render() {
     return (
-      <span onChange={this.handleChange} contentEditable={true} spellCheck={true} suppressContentEditableWarning={true}>
+      <span onBlur={this.handleChange} contentEditable={true} spellCheck={false} suppressContentEditableWarning={true}>
         {this.props.value}
       </span>
     );
