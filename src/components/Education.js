@@ -9,7 +9,7 @@ class Education extends Component {
 
     const sample = {
       id: _.uniqueId('section-'),
-      degree: 'B Tech Computer Science and Technology',
+      degree: 'B Tech Computer Science and Engineering',
       uni: 'IIIT, Delhi',
       coursework: 'Data Structures and Algorithms; Operating Systems;  Computer Security; Software Testing; Advanced Networking; Big Data Analytics',
       duration: 'Jan 2022 - Present'
