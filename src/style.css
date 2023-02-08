@@ -44,8 +44,10 @@ html, body {
 
 .section-name {
     font-family: 'Lato';
-    font-weight: 100;
+    font-weight: 300;
     font-size: 30px;
+    width: 100%;
+    border-bottom: 2px black;
     /*color: #2c3645;*/
 }
 

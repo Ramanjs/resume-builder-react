@@ -12,6 +12,7 @@ class Resume extends Component {
         <Name />
         <Education />
         <Experience />
+        <Experience />
         <Project />
         <Skill />
       </div>
